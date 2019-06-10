@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<link rel="stylesheet" type="text/css" href='{{ url_for('static',filename='styles2.css') }}'>
+<body>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>The mushroom database</h1>
+        <p>searsch away!</p>
+    </div>
+</div>
+
+<ul class="navigation_bar">
+    <li><a href="{{ url_for('homepage') }}">Home</a></li>
+    <li><a href="{{ url_for('database') }}">Database</a></li>
+    <li><a href="">Contact</a></li>
+    <li><a href="">About</a></li>
+</ul>
+
+<div style="padding-top: 5%; padding-bottom: 5%;">
+    <form method="post" id="rcorner" class="center">
+        <div class="parameters">
+            <!-- maakt al de checkerboxen met parameters -->
+            <h2>
+                waar in wil je zoeken?
+            </h2>
+            <label class="checkbox">description
+                <input type="checkbox" name="search_in" value="description" checked>
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">accessiecode ncbi
+                <input type="checkbox" name="search_in" value="accessiecode_ncbi">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">header aangeleverde data
+                <input type="checkbox" name="search_in" value="aangeleverdedata_gekregenheader">
+                <span class="checkmark"></span>
+            </label>
+            <input class="search" name="zoekterm" type="text" placeholder="typ hier je zoek term...">
+            <input class="search_button" type="submit" value="zoek!">
+        </div>
+        <div class="parameters">
+            <h2>
+                wat wil je laten zien?
+            </h2>
+
+            <label class="checkbox">accessiecode ncbi
+                <input type="checkbox" name="show" value="accessiecode_ncbi" checked>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox">description
+                <input type="checkbox" name="show" value="description" checked>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox">e_value
+                <input type="checkbox" name="show" value="e_value" checked>
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">score
+                <input type="checkbox" name="show" value="score" checked>
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox">identities
+                <input type="checkbox" name="show" value="identities" checked>
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="parameters">
+            <label class="checkbox">gaps
+                <input type="checkbox" name="show" value="gaps">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="checkbox">lengte_alignment
+                <input type="checkbox" name="show" value="lengte_alignment">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">query_coverage
+                <input type="checkbox" name="show" value="aangeleverdedata_gekregenheader">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">taxonomy_level
+                <input type="checkbox" name="show" value="taxonomy_level">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox">header aangeleverde data
+                <input type="checkbox" name="show" value="aangeleverdedata_gekregenheader">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </form>
+</div>
+
+<table class="center">
+    <tr>
+        <td>
+            accessiecode_ncbi
+        </td>
+        <td>
+            description
+        </td>
+        <td>
+            e_value
+        </td>
+        <td>
+            score
+        </td>
+        <td>
+            identities
+        </td>
+    </tr>
+    {% for row in resultaat %}
+        <tr>
+            {% for item in row %}
+                <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

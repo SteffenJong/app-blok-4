@@ -1,0 +1,76 @@
+<!--
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_hero_image
+https://www.w3schools.com/css/css_navbar.asp
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<link rel="stylesheet" type="text/css" href='{{ url_for('static',filename='styles2.css') }}'>
+<body>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>The mushroom database</h1>
+        <p>searsch away!</p>
+    </div>
+</div>
+<ul class="navigation_bar">
+    <li><a href="{{ url_for('homepage') }}">Home</a></li>
+    <li><a href="{{ url_for('database') }}">Database</a></li>
+    <li><a href="">Contact</a></li>
+    <li><a href="">About</a></li>
+</ul>
+
+<div class="center">
+    <h1>
+        Welkom op [insert naam website]!
+    </h1>
+    <P>
+        Het gewenste publiek voor deze website bestaat uit individuen die zich interesseren in het verbeteren van
+        compost
+        die gebruikt wordt voor de productie van de champignon <I>Agaricus bisporus</I>.
+    </P>
+    <p>
+        Daarnaast zijn natuurlijk alle nieuwsgierige bezoekers van deze website van harte welkom om een kijkje te nemen!
+    </p>
+    <p>
+        Deze website is opgebouwd uit een aantal onderdelen, welke wij hieronder graag even toelichten:
+    </p>
+
+    <h4>
+        <B>Homepage</B>
+    </h4>
+    <P class="tab">
+        U bevindt zich momenteel op de homepage. Deze dient inhoudelijke informatie te verschaffen over de website en u
+        hier wegwijs te maken.
+    </P>
+    <h4>
+        <b>Database</b>
+    </h4>
+    <p class="tab">
+        De kern van deze website. De database bestaat uit de beste BLAST-resultaten, uitgevoerd met DNA-fragmenten
+        uit
+        een compost-sample voor de productie van de champignon Agaricus bisporus. Desbetreffende DNA-fragmenten zijn
+        afkomstig van het bedrijf BaseClear, welke deze fragmenten heeft gesequenced met behulp van de Illumina
+        MiSeq
+        PE300 technologie als paired-end reads. Aan de hand van verschillende ingebouwde opties kan de database
+        doorzocht worden. Experimenteer hier zeker mee!
+    </p>
+    <h4><b>BLAST</b></h4>
+    <p class="tab">
+        Mocht u zelf gebruik willen maken van de Basic Local Alignment Search Tool, dan kunt u deze hier uitvoeren.
+    </p>
+    <h4>
+        <b> About</b>
+    </h4>
+    <p class="tab">
+        Degenen die een bijdrage hebben geleverd aan dit project, worden hier kort geïntroduceerd.
+    </p>
+</div>
+
+</body>
+</html>
