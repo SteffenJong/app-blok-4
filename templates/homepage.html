@@ -4,7 +4,6 @@ https://www.w3schools.com/css/css_navbar.asp
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +13,16 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
 
 <div class="hero-image">
     <div class="hero-text">
-        <h1>The mushroom database</h1>
+        <h1>The Mushroom Database</h1>
         <p>searsch away!</p>
     </div>
 </div>
+
 <ul class="navigation_bar">
     <li><a href="{{ url_for('homepage') }}">Home</a></li>
     <li><a href="{{ url_for('database') }}">Database</a></li>
-    <li><a href="">Contact</a></li>
-    <li><a href="">About</a></li>
+    <li><a href="{{ url_for('blast') }}">BLAST</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
 </ul>
 
 <div class="center">

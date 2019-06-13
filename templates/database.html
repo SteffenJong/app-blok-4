@@ -7,7 +7,7 @@
 
 <div class="hero-image">
     <div class="hero-text">
-        <h1>The mushroom database</h1>
+        <h1>The Mushroom Database</h1>
         <p>searsch away!</p>
     </div>
 </div>
@@ -15,8 +15,8 @@
 <ul class="navigation_bar">
     <li><a href="{{ url_for('homepage') }}">Home</a></li>
     <li><a href="{{ url_for('database') }}">Database</a></li>
-    <li><a href="">Contact</a></li>
-    <li><a href="">About</a></li>
+    <li><a href="{{ url_for('blast') }}">BLAST</a></li>
+    <li><a href="{{ url_for('about') }}">About</a></li>
 </ul>
 
 <div style="padding-top: 5%; padding-bottom: 5%;">
@@ -98,21 +98,9 @@
 
 <table class="center">
     <tr>
-        <td>
-            accessiecode_ncbi
-        </td>
-        <td>
-            description
-        </td>
-        <td>
-            e_value
-        </td>
-        <td>
-            score
-        </td>
-        <td>
-            identities
-        </td>
+        {% for item in titel_tabel %}
+            <td> {{ item }}i </td>
+        {% endfor %}
     </tr>
     {% for row in resultaat %}
         <tr>
