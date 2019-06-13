@@ -38,7 +38,7 @@
                 <input type="checkbox" name="search_in" value="aangeleverdedata_gekregenheader">
                 <span class="checkmark"></span>
             </label>
-            <input class="search" name="zoekterm" type="text" placeholder="typ hier je zoek term...">
+            <input class="search" name="zoekterm" type="text" placeholder="typ hier je zoekterm...">
             <input class="search_button" type="submit" value="zoek!">
         </div>
         <div class="parameters">
@@ -96,16 +96,16 @@
     </form>
 </div>
 
-<table class="center_1">
-    <tr>
+<table class="center_tb_results" >
+    <tr id="thick_border">
         {% for item in titel_tabel %}
-            <td> {{ item }}i </td>
+            <td id="thick_border"> {{ item }} </td>
         {% endfor %}
     </tr>
     {% for row in resultaat %}
-        <tr>
+        <tr class="zebra" id="thick_border">
             {% for item in row %}
-                <td>{{ item }}</td>
+                <td id="thick_border">{{ item }}</td>
             {% endfor %}
         </tr>
     {% endfor %}

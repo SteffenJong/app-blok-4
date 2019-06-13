@@ -137,10 +137,11 @@ body, html {
 }
 
 /* center an element */
-.center_1{
+.center_tb_results{
     margin: auto;
     width: 50%;
     margin-bottom: 5%;
+    border: 2px solid black;
 
 }
 /*shows paramters next to each other*/
@@ -187,4 +188,19 @@ table, th, td {
 }
 .tab {
     padding-left: 1.5em;
+}
+
+.drie_col_shadow{
+    display: inline-block;
+    width: 33%;
+
+}
+
+/*striped table */
+.zebra:nth-child(even) {
+  background-color: #bdbdbd;
+}
+
+#thick_border{
+    border: 2px solid black;
 }
