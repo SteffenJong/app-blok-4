@@ -2,7 +2,7 @@ from flask import Flask, request, make_response, render_template, url_for
 import mysql.connector
 
 
-def verwerk_get_list(list):
+def verwerk_get_list_show(list):
     first = True
     final_search = ""
 
@@ -14,10 +14,22 @@ def verwerk_get_list(list):
             final_search += (r" ," + term)
     return final_search
 
+def verwerk_get_list_search(list):
+    first = True
+    final_search = ""
+
+    for term in list:
+        if first:
+            final_search += term
+            first = False
+        else:
+            final_search += (r" or " + term)
+    return final_search
+
 app = Flask(__name__)
 
 
-@app.route('/', methods=['get', 'post'])
+@app.route('/')
 def homepage():
     resp = make_response(render_template("homepage.html"))
     return resp
@@ -39,8 +51,8 @@ def database():
     final_show = ""
     final_search = ""
 
-    final_search = verwerk_get_list(searsch_in)
-    final_show = verwerk_get_list(show)
+    final_search = verwerk_get_list_search(searsch_in)
+    final_show = verwerk_get_list_show(show)
 
     print("final search:", final_search)
     print("final show:", final_show)
@@ -53,23 +65,16 @@ def database():
     if zoekterm is not None:
         quiry = "select {} from blastresultatentabel where {} like '%{}%' limit 50".format(final_show, final_search, zoekterm)
         print(quiry)
-        cursor = connection.cursor()
-        cursor.execute(quiry)
-        resultaat = cursor.fetchall()
-        cursor.close()
-        print(resultaat, "-" * 80)
-        print("zoekterm is not none")
 
     if final_show is not "" and zoekterm is None:
         quiry = "select {} from blastresultatentabel limit 50".format(final_show)
         print(quiry)
+
+    if quiry is not "":
         cursor = connection.cursor()
-        print("zoekterm is none ")
-        print(final_show)
         cursor.execute(quiry)
         resultaat = cursor.fetchall()
         cursor.close()
-        print(resultaat, "-" * 80)
 
     site = render_template('database.html', resultaat=resultaat, titel_tabel=titel_tabel)
 
@@ -84,7 +89,7 @@ def blast():
     return resp
 
 
-@app.route('/about', methods=['get', 'post'])
+@app.route('/about')
 def about():
     resp = make_response(render_template("about.html"))
     return resp

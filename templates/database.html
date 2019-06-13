@@ -8,16 +8,16 @@
 <div class="hero-image">
     <div class="hero-text">
         <h1>The Mushroom Database</h1>
-        <p>searsch away!</p>
     </div>
 </div>
 
-<ul class="navigation_bar">
-    <li><a href="{{ url_for('homepage') }}">Home</a></li>
-    <li><a href="{{ url_for('database') }}">Database</a></li>
-    <li><a href="{{ url_for('blast') }}">BLAST</a></li>
-    <li><a href="{{ url_for('about') }}">About</a></li>
+<ul class="nav_bar">
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('homepage') }}">Home</a></li>
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('database') }}">Database</a></li>
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('blast') }}">BLAST</a></li>
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('about') }}">About</a></li>
 </ul>
+
 
 <div style="padding-top: 5%; padding-bottom: 5%;">
     <form method="post" id="rcorner" class="center">
@@ -96,7 +96,7 @@
     </form>
 </div>
 
-<table class="center">
+<table class="center_1">
     <tr>
         {% for item in titel_tabel %}
             <td> {{ item }}i </td>

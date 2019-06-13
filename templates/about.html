@@ -6,15 +6,52 @@
 <div class="hero-image">
     <div class="hero-text">
         <h1>The Mushroom Database</h1>
-        <p>searsch away!</p>
     </div>
 </div>
 
-<ul class="navigation_bar">
-    <li><a href="{{ url_for('homepage') }}">Home</a></li>
-    <li><a href="{{ url_for('database') }}">Database</a></li>
-    <li><a href="{{ url_for('blast') }}">BLAST</a></li>
-    <li><a href="{{ url_for('about') }}">About</a></li>
+<ul class="nav_bar">
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('homepage') }}">Home</a></li>
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('database') }}">Database</a></li>
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('blast') }}">BLAST</a></li>
+    <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('about') }}">About</a></li>
 </ul>
+
+<div class="center">
+    <h1>About</h1>
+    <p>
+        Natuurlijk is deze website niet zomaar uit de lucht komen vallen en heeft er heel wat werk achter de schermen
+        plaatsgevonden. Daarom willen wij op deze pagina graag kort en bondig een overzicht geven van het werk dat
+        verricht is en wie hiervoor precies verantwoordelijk is geweest.
+    </p>
+</div>
+
+<div class="center">
+    <div style="display: inline-block; width: fit-content">
+        <img src='{{ url_for('static',filename='ToadRed.png') }}' alt="red toad" style="width: 25%; height: 25%">
+        <h4 style="width: fit-content; margin: 0">Demi van der Pasch</h4>
+        <ul style="width: fit-content">
+            <li>Verwerken dataset</li>
+            <li>Inhoudelijke informatie website</li>
+        </ul>
+    </div>
+
+    <div style="display: inline-block; width: fit-content">
+        <img src='{{ url_for('static',filename='YellowToad.png') }}' alt="yellow toad" style="width: 25%; height: 25%">
+        <h4 style="width: fit-content">Steffen de Jong</h4>
+        <ul style="width: fit-content">
+            <li>Ontwerp website</li>
+            <li>Functionaliteiten website</li>
+        </ul>
+    </div>
+
+    <div style="display: inline-block; width: fit-content">
+        <img src='{{ url_for('static',filename='Blue_Toad.png') }}' alt="blue toad" style="width: 25%; height: 25%">
+        <h4 style="width: fit-content">Johannes Schönthaler</h4>
+        <ul style="width: fit-content">
+            <li>Ontwerp database</li>
+            <li>Vullen database</li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
