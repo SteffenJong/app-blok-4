@@ -1,4 +1,5 @@
 from flask import Flask, request, make_response, render_template, url_for
+from Bio.Blast import NCBIXML, NCBIWWW
 import mysql.connector
 
 
@@ -85,7 +86,62 @@ def database():
 
 @app.route('/Blast', methods=['get', 'post'])
 def blast():
-    resp = make_response(render_template("blast.html"))
+    program = ""
+    sequentie = ""
+    lijst_res = []
+    lijst_titel_kol = []
+    counter = 0
+    program = request.form.get("program")
+    sequentie = request.form.get("sequentie")
+
+    if program and sequentie is not "":
+        print("blasting")
+        result_handle = NCBIWWW.qblast(
+            program=program, database="nr", sequence=sequentie)
+
+        blast_records = NCBIXML.parse(result_handle)
+        blast_record = next(blast_records)
+
+        # for alignment in blast_record.alignments:
+        #     counter += 1
+        #     hit_description = ""
+        #     hit_id = ""
+        #     ids = ""
+        #     e_v = ""
+        #     sc = ""
+        #     gap = ""
+        #     for hsp in alignment.hsps:
+        #         print(counter, hsp)
+        #         it_description = alignment.hit_def
+        #         hit_id = alignment.hit_id
+        #         ids = hsp.identities
+        #         e_v = hsp.expect
+        #         sc = hsp.score
+        #         gap = hsp.gaps
+        #     lijst_res.append([hit_id, hit_description, e_v, sc, ids, gap])
+        for alignment in blast_record.alignments:
+            for hsp in alignment.hsps:
+                hit_description = ""
+                hit_id = ""
+                ids = ""
+                e_v = ""
+                sc = ""
+                gap = ""
+                print("-" * 80)
+                hit_description = alignment.hit_def
+                hit_id = alignment.hit_id
+                ids = hsp.identities
+                e_v = hsp.expect
+                sc = hsp.score
+                gap = hsp.gaps
+                lijst_res.append([hit_id, hit_description, e_v, sc, ids, gap])
+        lijst_titel_kol = ["accessiecode_ncbi", "description", "e_value", "score", "identities", "gaps"]
+    print(lijst_res)
+    print("done")
+
+    resp = make_response(render_template("blast.html", lijst_res=lijst_res, lijst_titel_kol=lijst_titel_kol))
+
+
     return resp
 
 

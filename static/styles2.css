@@ -165,6 +165,18 @@ body, html {
 
 }
 
+.input_sequenties {
+    width: 90%;
+    height: 25%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid grey;
+    font-size: 17px;
+    background-color: #ccc;
+}
+
+
 input[type=submit]{
 
   width: 20%;

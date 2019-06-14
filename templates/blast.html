@@ -16,5 +16,58 @@
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('about') }}">About</a></li>
 </ul>
 
+<div style="padding-top: 5%; padding-bottom: 5%;">
+    <form method="post" id="rcorner" class="center">
+        <!-- maakt al de checkerboxen met parameters -->
+
+            <h2>
+                Welke blast wilt u gebruiken?
+            </h2>
+             <div class="parameters">
+            <label class="checkbox">blastn
+                <input type="radio" name="program" value="blastn" checked>
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox"> blastp
+                <input type="radio" name="program" value="blastp">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox"> blastx
+                <input type="radio" name="program" value="blastx">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <div class="parameters">
+            <label class="checkbox"> tblastn
+                <input type="radio" name="program" value="tblastn">
+                <span class="checkmark"></span>
+            </label>
+            <label class="checkbox"> tblastx
+                <input type="radio" name="program" value="tblastx">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        <input class="input_sequenties" name="sequentie" type="text" placeholder="vul hier je sequentie in....">
+        <input class="search_button" type="submit" value="blast!">
+    </form>
+</div>
+
+
+<table class="center_tb_results" >
+    <tr id="thick_border">
+        {% for item in lijst_titel_kol %}
+            <td>{{ item }}</td>
+        {% endfor %}
+    </tr>
+    {% for row in lijst_res %}
+        <tr class="zebra" id="thick_border">
+            {% for item in row %}
+                <td id="thick_border">{{ item }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+
 </body>
 </html>
