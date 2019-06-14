@@ -101,24 +101,6 @@ def blast():
 
         blast_records = NCBIXML.parse(result_handle)
         blast_record = next(blast_records)
-
-        # for alignment in blast_record.alignments:
-        #     counter += 1
-        #     hit_description = ""
-        #     hit_id = ""
-        #     ids = ""
-        #     e_v = ""
-        #     sc = ""
-        #     gap = ""
-        #     for hsp in alignment.hsps:
-        #         print(counter, hsp)
-        #         it_description = alignment.hit_def
-        #         hit_id = alignment.hit_id
-        #         ids = hsp.identities
-        #         e_v = hsp.expect
-        #         sc = hsp.score
-        #         gap = hsp.gaps
-        #     lijst_res.append([hit_id, hit_description, e_v, sc, ids, gap])
         for alignment in blast_record.alignments:
             for hsp in alignment.hsps:
                 hit_description = ""

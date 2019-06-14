@@ -216,3 +216,11 @@ table, th, td {
 #thick_border{
     border: 2px solid black;
 }
+.home_icons{
+    width: 5%;
+    height: 5%;
+}
+.title_home{
+    display: inline-block;
+    vertical-align: top
+}

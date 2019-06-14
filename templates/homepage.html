@@ -29,12 +29,11 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
     <h1>
         Welkom op The Mushroom Database!
     </h1>
-    <P>
+    <P class="tab">
        Deze website is het resultaat van een door ons uitgevoerd onderzoek. Graag leiden wij u kort en bondig door het
         desbetreffende onderzoeksproces heen, zodat u een beter beeld krijgt van wat er precies aan deze website vooraf
         is gegaan en wat voor functionaliteiten deze website voor u te bieden heeft.
     </P>
-
     <h4>
         <B>Achtergrond</B>
     </h4>
@@ -71,15 +70,20 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
     <p>Natuurlijk zijn daarnaast alle nieuwsgierige bezoekers van deze website van harte welkom om ook een kijkje te
         nemen
     </p>
-    <h3>
-        <b> Toelichting per pagina</b>
-    </h3>
-    <h4>Home </h4>
+    <br> <br>
+    <h2>
+        <b> Toelichting per pagina</b><br> <br>
+    </h2>
+    <div>
+    <img src='{{ url_for('static',filename='home.png') }}' alt="home_icon" class="home_icons">
+    <h4 class="title_home">Home </h4>
+    </div>
     <p class="tab">
         U bevindt zich momenteel op de Home-pagina. Deze dient inhoudelijke informatie te verschaffen over de website
         en u hier wegwijs te maken.
     </p>
-    <h4>Database</h4>
+    <img src='{{ url_for('static',filename='databse.png') }}' alt="home_icon" class="home_icons">
+    <h4 class="title_home">Database</h4>
     <p class="tab">
         De trots van deze website. De database bestaat uit een aantal van de beste BLAST-resultaten, uitgevoerd over
         DNA-fragmenten uit een compost-sample voor de productie van de champignon Agaricus bisporus. Desbetreffende
@@ -88,15 +92,18 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         verschillende ingebouwde zoek- en visualisatie-opties kan de database doorzocht worden. Wij raden u aan om hier
         dan ook zeker gebruik van te maken!
     </p>
-    <h4>BLAST</h4>
+    <img src='{{ url_for('static',filename='blast.png') }}' alt="home_icon" class="home_icons">
+    <h4 class="title_home">BLAST</h4>
     <p class="tab">
         Mocht u zelf een BLAST-search uit willen voeren, maak dan vooral gebruik van deze pagina!
     </p>
-    <h4>About</h4>
+    <img src='{{ url_for('static',filename='about.png') }}' alt="home_icon" class="home_icons">
+    <h4 class="title_home">About</h4>
     <P Class="tab">
         Hier wordt een overzichtelijke visualisatie van zowel het verrichte werk als de hiervoor verantwoordelijke
         personen gepresenteerd. Een kijkje achter de schermen dus!
     </P>
+    <br> <br>
 
 
 
