@@ -4,6 +4,10 @@ import mysql.connector
 
 
 def verwerk_get_list_show(list):
+    """ verwerkt de lijst naar een string die in de query gebruikt kan worden bij het select statement.
+    :param list: lijst met alle aangevinkte parameters van website.
+    :return: een string die in een query gezet kan worden.
+    """
     first = True
     final_search = ""
 
@@ -16,6 +20,10 @@ def verwerk_get_list_show(list):
     return final_search
 
 def verwerk_get_list_search(list):
+    """verwerkt de lijst naar een string die in de query gebruikt kan worden bij where statement.
+    :param list: lijst met alle aangevinkte parameters van website.
+    :return: een string die in een query gezet kan worden.
+    """
     first = True
     final_search = ""
 
@@ -27,17 +35,48 @@ def verwerk_get_list_search(list):
             final_search += (r" or " + term)
     return final_search
 
+
+def get_list_blastrecord(blast_record):
+    """verwerkt de output van blast tot een lijst die makkelijk weertegecven is op de website
+    :param blast_record: blast resultaten
+    :return: een 2d lijst met resultaat items per resultaat
+    """
+    lijst_res = []
+    for alignment in blast_record.alignments:
+            for hsp in alignment.hsps:
+                hit_description = ""
+                hit_id = ""
+                ids = ""
+                e_v = ""
+                sc = ""
+                gap = ""
+                hit_description = alignment.hit_def
+                hit_id = alignment.hit_id
+                ids = hsp.identities
+                e_v = hsp.expect
+                sc = hsp.score
+                gap = hsp.gaps
+                lijst_res.append([hit_id, hit_description, e_v, sc, ids, gap])
+    return lijst_res
+
+
 app = Flask(__name__)
 
 
 @app.route('/')
 def homepage():
+    """laat de home pagina
+    :return: gerenderd html template voor de home pagina
+    """
     resp = make_response(render_template("homepage.html"))
     return resp
 
 
 @app.route('/database/', methods=['get', 'post'])
 def database():
+    """laat de database pagina en zorgt dat database te bevragen is van uit de website
+        :return: gerenderd html template voor de database pagina
+        """
     connection = mysql.connector.connect(host="hannl-hlo-bioinformatica-mysqlsrv.mysql.database.azure.com",
                                          user="rapwz@hannl-hlo-bioinformatica-mysqlsrv", db="rapwz", password="pwd123")
 
@@ -45,31 +84,22 @@ def database():
     show = request.form.getlist("show")
     zoekterm = request.form.get("zoekterm")
 
-    print(searsch_in)
-    print(show)
-    print(zoekterm)
-
     final_show = ""
     final_search = ""
 
     final_search = verwerk_get_list_search(searsch_in)
     final_show = verwerk_get_list_show(show)
 
-    print("final search:", final_search)
-    print("final show:", final_show)
-    print("zoekterm:", zoekterm)
-
     quiry = ""
     resultaat = ""
     titel_tabel = show
 
     if zoekterm is not None:
-        quiry = "select {} from blastresultatentabel where {} like '%{}%' limit 50".format(final_show, final_search, zoekterm)
-        print(quiry)
+        quiry = "select {} from blastresultatentabel where {} like '%{}%' limit 50".format(final_show, final_search,
+                                                                                           zoekterm)
 
     if final_show is not "" and zoekterm is None:
         quiry = "select {} from blastresultatentabel limit 50".format(final_show)
-        print(quiry)
 
     if quiry is not "":
         cursor = connection.cursor()
@@ -86,11 +116,13 @@ def database():
 
 @app.route('/Blast', methods=['get', 'post'])
 def blast():
+    """ laat de blast pagina en zorgt dat er te blasten valt van uit de website
+    :return: erenderd html template voor de blast pagina
+    """
     program = ""
     sequentie = ""
     lijst_res = []
     lijst_titel_kol = []
-    counter = 0
     program = request.form.get("program")
     sequentie = request.form.get("sequentie")
 
@@ -101,34 +133,21 @@ def blast():
 
         blast_records = NCBIXML.parse(result_handle)
         blast_record = next(blast_records)
-        for alignment in blast_record.alignments:
-            for hsp in alignment.hsps:
-                hit_description = ""
-                hit_id = ""
-                ids = ""
-                e_v = ""
-                sc = ""
-                gap = ""
-                print("-" * 80)
-                hit_description = alignment.hit_def
-                hit_id = alignment.hit_id
-                ids = hsp.identities
-                e_v = hsp.expect
-                sc = hsp.score
-                gap = hsp.gaps
-                lijst_res.append([hit_id, hit_description, e_v, sc, ids, gap])
+
+        lijst_res = get_list_blastrecord(blast_record)
+
         lijst_titel_kol = ["accessiecode_ncbi", "description", "e_value", "score", "identities", "gaps"]
-    print(lijst_res)
     print("done")
 
     resp = make_response(render_template("blast.html", lijst_res=lijst_res, lijst_titel_kol=lijst_titel_kol))
-
-
     return resp
 
 
 @app.route('/about')
 def about():
+    """laat de about pagina
+    :return: gerenderd html template voor de about pagina
+    """
     resp = make_response(render_template("about.html"))
     return resp
 
