@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="de07cda1-8c78-47b9-bc22-f96c73855992" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/styles2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blast.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blast.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/database.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/database.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/homepage.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -290,15 +285,15 @@
       <workItem from="1560180103783" duration="632000" />
       <workItem from="1560255016770" duration="1858000" />
       <workItem from="1560431651753" duration="18635000" />
-      <workItem from="1560503282374" duration="13678000" />
+      <workItem from="1560503282374" duration="14249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48865000" />
+    <option name="totallyTimeSpent" value="49436000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1456" extended-state="6" />
+    <frame x="-8" y="-8" width="2576" height="1456" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20429252" />
