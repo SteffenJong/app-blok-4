@@ -2,20 +2,21 @@
 <html lang="en">
 <link rel="stylesheet" type="text/css" href='{{ url_for('static',filename='styles2.css') }}'>
 <body>
-
+/* zorgt voor afbeelding boven aan scherm*/
 <div class="hero-image">
     <div class="hero-text">
         <h1>The Mushroom Database</h1>
     </div>
 </div>
 
+/* zorgt voor de navigatie bar*/
 <ul class="nav_bar">
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('homepage') }}">Home</a></li>
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('database') }}">Database</a></li>
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('blast') }}">BLAST</a></li>
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('about') }}">About</a></li>
 </ul>
-
+/*laat titel zien */
 <div class="center">
     <h1>About</h1>
     <p>
@@ -25,6 +26,7 @@
     </p>
 </div>
 
+/* laat die divs naast elkaar zien met daarin een foto en tekst over de makers */
 <div class="center">
     <div class="drie_col_shadow">
         <img src='{{ url_for('static',filename='ToadRed.png') }}' alt="red toad" style="width: 25%; height: 25%">

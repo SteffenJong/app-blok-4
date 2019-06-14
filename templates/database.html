@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
 <link rel="stylesheet" type="text/css" href='{{ url_for('static',filename='styles2.css') }}'>
 <body>
-
+/* zorgt voor afbeelding boven aan scherm*/
 <div class="hero-image">
     <div class="hero-text">
         <h1>The Mushroom Database</h1>
     </div>
 </div>
 
+/* zorgt voor de navigatie bar*/
 <ul class="nav_bar">
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('homepage') }}">Home</a></li>
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('database') }}">Database</a></li>
@@ -18,7 +17,7 @@
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('about') }}">About</a></li>
 </ul>
 
-
+/* geeft een div weer waarin aangegeven kan worden wat er weergegeven wordt en waarin gezocht wordt*/
 <div style="padding-top: 5%; padding-bottom: 5%;">
     <form method="post" id="rcorner" class="center">
         <div class="parameters" style="vertical-align: top">
@@ -96,8 +95,15 @@
     </form>
 </div>
 
-<table class="center_tb_results" >
+/*laat de resultaten zien*/
+<table class="center_tb_results">
     <tr id="thick_border">
+
+        {% if geen_resultaat == "Er zijn geen resultaten gevonden die aan de ingevoerde zoekopties voldoen" %}
+            <div class="center">{{ geen_resultaat }} <br> <br> <img
+                    src='{{ url_for('static',filename='no_result_found.gif') }}' alt="red toad"></div>
+        {% endif %}
+
         {% for item in titel_tabel %}
             <td id="thick_border"> {{ item }} </td>
         {% endfor %}

@@ -93,6 +93,7 @@ def database():
     quiry = ""
     resultaat = ""
     titel_tabel = show
+    site = ""
 
     if zoekterm is not None:
         quiry = "select {} from blastresultatentabel where {} like '%{}%' limit 50".format(final_show, final_search,
@@ -106,8 +107,14 @@ def database():
         cursor.execute(quiry)
         resultaat = cursor.fetchall()
         cursor.close()
+        site = render_template('database.html', resultaat=resultaat, titel_tabel=titel_tabel)
 
-    site = render_template('database.html', resultaat=resultaat, titel_tabel=titel_tabel)
+    if resultaat == []:
+        print("geen resultaat")
+        geen_resultaat = "Er zijn geen resultaten gevonden die aan de ingevoerde zoekopties voldoen"
+        site = render_template('database.html', geen_resultaat=geen_resultaat)
+    if site == "":
+        site = render_template('database.html')
 
     connection.close()
 
@@ -138,6 +145,8 @@ def blast():
 
         lijst_titel_kol = ["accessiecode_ncbi", "description", "e_value", "score", "identities", "gaps"]
     print("done")
+
+
 
     resp = make_response(render_template("blast.html", lijst_res=lijst_res, lijst_titel_kol=lijst_titel_kol))
     return resp

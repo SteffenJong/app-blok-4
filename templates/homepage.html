@@ -1,13 +1,5 @@
-<!--
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_hero_image
-https://www.w3schools.com/css/css_navbar.asp
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
--->
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
 <link rel="stylesheet" type="text/css" href='{{ url_for('static',filename='styles2.css') }}'>
 <body>
 
@@ -16,6 +8,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         <h1>The Mushroom Database</h1>
     </div>
 </div>
+
 
 <ul class="nav_bar">
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('homepage') }}">Home</a></li>
@@ -30,13 +23,13 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         Welkom op The Mushroom Database!
     </h1>
     <P class="tab">
-       Deze website is het resultaat van een door ons uitgevoerd onderzoek. Graag leiden wij u kort en bondig door het
+        Deze website is het resultaat van een door ons uitgevoerd onderzoek. Graag leiden wij u kort en bondig door het
         desbetreffende onderzoeksproces heen, zodat u een beter beeld krijgt van wat er precies aan deze website vooraf
         is gegaan en wat voor functionaliteiten deze website voor u te bieden heeft.
     </P>
-    <h4>
+    <h2>
         <B>Achtergrond</B>
-    </h4>
+    </h2>
     <P class="tab">
         Er is vernomen dat de oogst van champignons sterk kan variëren, wat een hinder blijkt te zijn voor de
         champignonteelt. Nu blijkt de samenstelling van de microflora in de gebruikte compost een grote invloed te
@@ -49,9 +42,9 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         uitgevoerd en de relevante output hiervan hebben wij opgeslagen in de vorm van een database. Deze database
         hebben wij ten slotte gekoppeld aan de website waarop u zich momenteel bevindt.
     </P>
-    <h4>
+    <h2>
         <b>Database</b>
-    </h4>
+    </h2>
     <p class="tab">
         De kern van deze website. De database bestaat uit de beste BLAST-resultaten, uitgevoerd met DNA-fragmenten
         uit
@@ -61,9 +54,9 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         PE300 technologie als paired-end reads. Aan de hand van verschillende ingebouwde opties kan de database
         doorzocht worden. Experimenteer hier zeker mee!
     </p>
-    <h4><b>Functie en doelgroep</b></h4>
+    <h2><b>Functie en doelgroep</b></h2>
     <p class="tab">
-       Deze website geeft analisten de mogelijkheid om onze database op een overzichtelijke manier te bevragen en op
+        Deze website geeft analisten de mogelijkheid om onze database op een overzichtelijke manier te bevragen en op
         deze manier een goed beeld te krijgen van de huidige samenstelling van de compost van de champignon Agaricus
         <i>bisporus.</i>
     </p>
@@ -75,15 +68,15 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         <b> Toelichting per pagina</b><br> <br>
     </h2>
     <div>
-    <img src='{{ url_for('static',filename='home.png') }}' alt="home_icon" class="home_icons">
-    <h4 class="title_home">Home </h4>
+        <img src='{{ url_for('static',filename='home.png') }}' alt="home_icon" class="home_icons">
+        <h4 class="title_home">Home </h4>
     </div>
     <p class="tab">
         U bevindt zich momenteel op de Home-pagina. Deze dient inhoudelijke informatie te verschaffen over de website
         en u hier wegwijs te maken.
     </p>
     <img src='{{ url_for('static',filename='databse.png') }}' alt="home_icon" class="home_icons">
-    <h4 class="title_home">Database</h4>
+    <h2 class="title_home">Database</h2>
     <p class="tab">
         De trots van deze website. De database bestaat uit een aantal van de beste BLAST-resultaten, uitgevoerd over
         DNA-fragmenten uit een compost-sample voor de productie van de champignon Agaricus bisporus. Desbetreffende
@@ -93,7 +86,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         dan ook zeker gebruik van te maken!
     </p>
     <img src='{{ url_for('static',filename='blast.png') }}' alt="home_icon" class="home_icons">
-    <h4 class="title_home">BLAST</h4>
+    <h2 class="title_home">BLAST</h2>
     <p class="tab">
         Mocht u zelf een BLAST-search uit willen voeren, maak dan vooral gebruik van deze pagina!
     </p>
@@ -104,10 +97,6 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_searchbar
         personen gepresenteerd. Een kijkje achter de schermen dus!
     </P>
     <br> <br>
-
-
-
-
 </div>
 
 </body>

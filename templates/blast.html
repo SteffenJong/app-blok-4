@@ -2,13 +2,14 @@
 <html lang="en">
 <link rel="stylesheet" type="text/css" href='{{ url_for('static',filename='styles2.css') }}'>
 <body>
-
+/* zorgt voor afbeelding boven aan scherm*/
 <div class="hero-image">
     <div class="hero-text">
         <h1>The Mushroom Database</h1>
     </div>
 </div>
 
+/* zorgt voor de navigatie bar*/
 <ul class="nav_bar">
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('homepage') }}">Home</a></li>
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('database') }}">Database</a></li>
@@ -16,14 +17,15 @@
     <li class="li_nav_bar"><a class="li_a_nav_bar" href="{{ url_for('about') }}">About</a></li>
 </ul>
 
-<div style="padding-top: 5%; padding-bottom: 5%;">
+/*geeft een div weer waarin opgegeven kan worden welk blast programma gebruikt gaat worden*/
+<div style="padding-top: 2.5%; padding-bottom: 5%;">
     <form method="post" id="rcorner" class="center">
         <!-- maakt al de checkerboxen met parameters -->
 
-            <h2>
-                Welk BLAST-programma wilt u gebruiken?
-            </h2>
-             <div class="parameters">
+        <h2>
+            Welk BLAST-programma wilt u gebruiken?
+        </h2>
+        <div class="parameters">
             <label class="checkbox">blastn
                 <input type="radio" name="program" value="blastn" checked>
                 <span class="checkmark"></span>
@@ -52,8 +54,8 @@
     </form>
 </div>
 
-
-<table class="center_tb_results" >
+/*laat de blast esultaten zien*/
+<table class="center_tb_results">
     <tr id="thick_border">
         {% for item in lijst_titel_kol %}
             <td>{{ item }}</td>
